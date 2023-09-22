@@ -47,6 +47,9 @@ ssh: ## SSH into PHP container
 install: ## Run composer install
 	docker exec ${CONTAINER_PHP} composer install
 
+build-vite: ## Run npm run build
+	docker exec ${CONTAINER_PHP} npm run build
+
 migrate: ## Run migration files
 	docker exec ${CONTAINER_PHP} php artisan migrate
 
