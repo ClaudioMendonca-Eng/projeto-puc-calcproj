@@ -18,24 +18,10 @@
                             {{ __("Update your account's profile information and email address.") }}
                         </p>
                     </header>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                <h3>Ops! Algo deu errado.</h3>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('users.includes.validations-form')
                     <form action="{{ route('users.update', $user->id) }}" method="post">
                         @method('PUT')
-                        @csrf
-                        <input type="text" name="name" placeholder="Nome:" value="{{ $user->name }}">
-                        <input type="email" name="email" placeholder="Email:" value="{{ $user->email }}">
-                        <input type="password" name="password" placeholder="Senha:">
-                        <input name="funcao" name= "funcao" value="{{ $user->funcao }}">
-                        <button type="submit">Editar</button>
+                        @include('users._partials.form')
                     </form>
                 </div>
             </div>

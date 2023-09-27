@@ -18,26 +18,9 @@
                             {{ __("Update your account's profile information and email address.") }}
                         </p>
                     </header>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                <h3>Ops! Algo deu errado.</h3>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('users.includes.validations-form')
                     <form action="{{ route('users.store') }}" method="post">
-                        @csrf
-                        <input type="text" name="name" placeholder="Nome:" value="{{ old('name') }}">
-                        <input type="email" name="email" placeholder="Email:" value="{{ old('email') }}">
-                        <input type="password" name="password" placeholder="Senha:">
-                        <select name="funcao">
-                            <option value="user">Usuário</option>
-                            <option value="admin">Administrador</option>
-                        </select >
-                        <button type="submit">Cadastrar</button>
+                        @include('users._partials.form')
                     </form>
                 </div>
             </div>
