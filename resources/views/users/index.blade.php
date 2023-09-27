@@ -22,7 +22,11 @@
                             | <a href="{{ route('users.show', $user->id) }}">Detalhes</a>
                         </li>
                     @endforeach
+                    <div class="py">
+                        {{ $users->links() }}
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
