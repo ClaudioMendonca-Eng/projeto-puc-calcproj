@@ -23,7 +23,10 @@
                         </li>
                     @endforeach
                     <div class="py">
-                        {{ $users->links() }}
+                        {{ $users->appends([
+                            'search' => request()->get('search', '')])
+                            ->links() }}
+
                     </div>
                 </div>
 
