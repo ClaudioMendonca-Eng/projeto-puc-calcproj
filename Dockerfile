@@ -18,6 +18,10 @@ RUN mkdir -p ./storage/framework/{cache, testing, sessions, views}
 RUN mkdir -p ./storage/framework/bootstrap
 RUN mkdir -p ./storage/framework/bootstrap/cache
 
+# Laravel Storage folder public php artisan storage:link
+RUN mkdir -p ./storage/app/public
+
+
 # Adjust user permission & group.
 RUN usermod --uid 1000 www-data
 RUN groupmod --gid 1000  www-data

@@ -43,5 +43,11 @@ chmod -R 775 /app/storage/framework/sessions
 chmod -R 775 /app/bootstrap
 chmod -R 775 /app/bootstrap/cache
 
+# php artisan storage:link
+chuwn -R www-data /app/public/storage
+chmod -R 775 /app/public/storage
+php artisan storage:link
+
+
 php-fpm -D
 nginx -g "daemon off;"

@@ -48,6 +48,14 @@ class UserController extends Controller
 
         $data['password'] = bcrypt($data['password']);
 
+        if ($request->image) {
+           // $data['image'] = $request->image->store('users');
+           $extension = $request->image->getClientOriginalExtension();
+
+           $data['image'] = $request->image->storeAs('users', "{$request->name}.{$extension}");
+
+        }
+
         $this->model->create($data);
 
         return redirect()->route('users.index');

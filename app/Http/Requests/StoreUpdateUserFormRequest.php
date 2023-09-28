@@ -29,7 +29,7 @@ class StoreUpdateUserFormRequest extends FormRequest
             'funcao' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', "unique:users,email,{$id},id"],
             'password' => ['required', 'string', 'min:8'],
-
+            'image' => ['nullable', 'image', 'max:1024'],
         ];
 
         if ($this->method() == 'PUT') {

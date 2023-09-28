@@ -19,7 +19,7 @@
                         </p>
                     </header>
                     @include('users.includes.validations-form')
-                    <form action="{{ route('users.store') }}" method="post">
+                    <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
                         @include('users._partials.form')
                     </form>
                 </div>
