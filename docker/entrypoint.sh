@@ -24,7 +24,10 @@ fi
 # php artisan migrate
 php artisan clear
 php artisan optimize:clear
-php artisan migrate
+php artisan migrate:fresh
+
+# npm run build
+npm run build
 
 # Fix files ownership.
 chown -R www-data .
