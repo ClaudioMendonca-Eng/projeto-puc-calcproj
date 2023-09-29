@@ -21,10 +21,18 @@ class Cliente extends Model
 
     protected $casts = [
         'ativo' => 'boolean',
+        'email_verified_at' => 'datetime',
     ];
 
     public function empresaSistemas()
     {
         return $this->belongsTo(EmpresaSistema::class);
     }
+
+    public function projetos()
+    {
+        return $this->hasMany(Projeto::class);
+    }
+
+
 }

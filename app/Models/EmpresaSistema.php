@@ -24,5 +24,12 @@ class EmpresaSistema extends Model
         return $this->hasMany(Cliente::class);
     }
 
+    public function recursos()
+    {
+        return $this->hasMany(Recurso::class);
+    }
+
+
+
 
 }

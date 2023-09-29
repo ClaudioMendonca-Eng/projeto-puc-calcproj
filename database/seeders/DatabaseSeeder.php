@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             EmpresaSistemaSeeder::class,
             ClienteSeeder::class,
+            ProjetosSeeder::class,
+            TipoSeeder::class,
+            RecursoSeeder::class,
+
         ]);
     }
 }
