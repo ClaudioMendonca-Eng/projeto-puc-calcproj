@@ -53,8 +53,8 @@ build-vite: ## Run npm run build
 migrate: ## Run migration files
 	docker exec ${CONTAINER_PHP} php artisan migrate
 
-migrate-fresh: ## Clear database and run all migrations
-	docker exec ${CONTAINER_PHP} php artisan migrate:fresh
+migrate-fresh: ## Clear database and run all migrations and seeders
+	docker exec ${CONTAINER_PHP} php artisan migrate:fresh --seed
 
 tests: ## Run all tests
 	docker exec ${CONTAINER_PHP} ./vendor/bin/phpunit
