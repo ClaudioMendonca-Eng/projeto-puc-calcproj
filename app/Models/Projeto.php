@@ -19,4 +19,9 @@ class Projeto extends Model
         return $this->belongsTo(Cliente::class);
     }
 
+    public function tipos()
+    {
+        return $this->belongsToMany(Tipo::class, 'projeto_tipo', 'projeto_id', 'tipo_id');
+    }
+
 }

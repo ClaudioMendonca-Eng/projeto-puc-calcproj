@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ProjetosSeeder::class,
             TipoSeeder::class,
             RecursoSeeder::class,
+            OrcamentoSeeder::class,
 
         ]);
     }

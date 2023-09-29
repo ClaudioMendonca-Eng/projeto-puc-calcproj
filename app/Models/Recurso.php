@@ -26,4 +26,9 @@ class Recurso extends Model
         return $this->belongsTo(Tipo::class);
     }
 
+    public function orcamentos()
+    {
+        return $this->belongsToMany(Orcamento::class, 'orcamento_recurso', 'recurso_id', 'orcamento_id');
+    }
+
 }
