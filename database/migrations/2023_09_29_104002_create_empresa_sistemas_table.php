@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('responsavel');
             $table->string('telefone');
             $table->string('email');
-            $table->string('logo')->default('empresassistema/logo.png');
+            $table->string('logo')->default('empresa/logo.png');
 
             $table->timestamps();
         });

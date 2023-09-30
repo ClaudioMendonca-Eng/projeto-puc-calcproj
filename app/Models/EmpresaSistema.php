@@ -19,6 +19,8 @@ class EmpresaSistema extends Model
         'logo',
     ];
 
+
+
     public function clientes()
     {
         return $this->hasMany(Cliente::class);

@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
     Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
@@ -40,6 +41,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/empresa', [App\Http\Controllers\EmpresaSistemaController::class, 'store'])->name('empresa.store');
     Route::get('/empresa/{id}/edit', [App\Http\Controllers\EmpresaSistemaController::class, 'edit'])->name('empresa.edit');
     Route::put('/empresa/{id}', [App\Http\Controllers\EmpresaSistemaController::class, 'update'])->name('empresa.update');
+
+    Route::delete('/clientes/{id}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('clientes.destroy');
+    Route::put('/clientes/{id}', [App\Http\Controllers\ClienteController::class, 'update'])->name('clientes.update');
+    Route::get('/clientes/{id}/edit', [App\Http\Controllers\ClienteController::class, 'edit'])->name('clientes.edit');
+    Route::get('/clientes', [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes.index');
+    Route::get('/clientes/create', [App\Http\Controllers\ClienteController::class, 'create'])->name('clientes.create');
+    Route::post('/clientes', [App\Http\Controllers\ClienteController::class, 'store'])->name('clientes.store');
+    Route::get('/clientes/{id}', [App\Http\Controllers\ClienteController::class, 'show'])->name('clientes.show');
 
 
 });

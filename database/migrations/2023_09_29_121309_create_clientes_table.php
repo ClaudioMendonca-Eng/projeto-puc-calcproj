@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('empresa_sistemas_id')->constrained('empresa_sistemas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('empresa_sistemas_id')->constrained('empresa_sistemas')->onDelete('cascade')->onUpdate('cascade')->default(1);
             $table->string('empresa');
             $table->string('cnpj');
             $table->string('endereco');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('telefone');
             $table->string('responsavel');
             $table->string('logo')->default('clientes/cliente.png');
-            $table->boolean('ativo')->default(true);
+            $table->boolean('ativo')->nullable()->default(true);
             $table->timestamps();
 
 

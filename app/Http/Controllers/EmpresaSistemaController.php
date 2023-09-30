@@ -7,33 +7,45 @@ use App\Models\EmpresaSistema;
 
 class EmpresaSistemaController extends Controller
 {
+    protected $model;
+
+    public function __construct(EmpresaSistema $empresa)
+    {
+        $this->model = $empresa;
+
+        //$this->middleware(['can:users']);
+    }
 
     public function index()
     {
-       $empresas = EmpresaSistema::get();
-         return view('empresa.index', compact('empresas'));
+        $empresas = $this->model->paginate();
+        return view('empresa.index', compact('empresas'));
     }
 
     public function edit($id)
     {
-        $empresa = EmpresaSistema::findOrFail($id);
+        $empresa = $this->model->findOrFail($id);
         return view('empresa.edit', compact('empresa'));
     }
 
     public function update(UpdateEmpresaFormRequest $request, $id)
     {
+        $empresa = $this->model->findOrFail($id);
+        $empresa->update($request->all());
         $data = $request->all();
 
         if ($request->logo) {
-           // $data['image'] = $request->image->store('users');
            $extension = $request->logo->getClientOriginalExtension();
 
            $data['logo'] = $request->logo->storeAs('empresa', "logo.{$extension}");
 
         }
 
-        return redirect()->route('empresa.index')->with('message', 'Empresa atualizada com sucesso!');
+        $empresa->update($data);
+
+        return redirect()->route('empresa.index');
     }
+
 
 
 
