@@ -30,6 +30,4 @@ class EmpresaSistema extends Model
     }
 
 
-
-
 }

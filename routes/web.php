@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmpresaSistemaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/users/create', [UserController::class, 'create' ])->name('users.create');
     Route::post('/users', [UserController::class, 'store' ])->name('users.store');
     Route::get('/users/{id}', [UserController::class, 'show' ])->name('users.show');
+
+    Route::get('/empresa', [App\Http\Controllers\EmpresaSistemaController::class, 'index'])->name('empresa.index');
+    Route::post('/empresa', [App\Http\Controllers\EmpresaSistemaController::class, 'store'])->name('empresa.store');
+    Route::get('/empresa/{id}/edit', [App\Http\Controllers\EmpresaSistemaController::class, 'edit'])->name('empresa.edit');
+    Route::put('/empresa/{id}', [App\Http\Controllers\EmpresaSistemaController::class, 'update'])->name('empresa.update');
+
+
 });
 
 
